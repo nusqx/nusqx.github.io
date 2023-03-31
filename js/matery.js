@@ -46,7 +46,7 @@ $(function () {
      * 修复样式.
      */
     let fixStyles = function () {
-        fixPostCardWidth('navContainer');
+        fixPostCardWidth('navContainer', 'articles');//原无articles这一项 2023/3/31
         fixPostCardWidth('artDetail', 'prenext-posts');
         fixFooterPosition();
     };
@@ -104,13 +104,14 @@ $(function () {
             selector: '.img-item',
             // 启用字幕
             subHtmlSelectorRelative: true,
-            //showThumbByDefault: false
-            //这句加上
+            showThumbByDefault: false
+            //这句加上2023/3/31
         });
         // 懒加载防止插件冲突
-        $(document).find('img[data-original]').each(function(){
-            $(this).parent().attr("href", $(this).attr("data-original")); 
-        });
+        /*网站加载逻辑问题 网站加载逻辑问题：图片最后加载  modify 修改时间：2023.3.31*/
+        //$(document).find('img[data-original]').each(function(){
+         //   $(this).parent().attr("href", $(this).attr("data-original")); 
+        //});
 
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
@@ -140,6 +141,7 @@ $(function () {
         let scroll = $(window).scrollTop();
         showOrHideNavBg(scroll);
     });
+    
 
     function showOrHideNavBg(position) {
         let showPosition = 100;
@@ -152,7 +154,7 @@ $(function () {
         }
     }
 
-    	
+    // 增加二级菜单功能	
 	$(".nav-menu>li").hover(function(){
 		$(this).children('ul').stop(true,true).show();
 		 $(this).addClass('nav-show').siblings('li').removeClass('nav-show');
@@ -179,7 +181,7 @@ $(function () {
 
 //黑夜模式提醒开启功能
 setTimeout(function () {
-    if ((new Date().getHours() >= 19 || new Date().getHours() < 7) && !$('body').hasClass('DarkMode')) {
+    if ((new Date().getHours() >= 19 || new Date().getHours() < 6) && !$('body').hasClass('DarkMode')) {
         let toastHTML = '<span style="color:#97b8b2;border-radius: 10px;>' + '<i class="fa fa-bellaria-hidden="true"></i>晚上使用深色模式阅读更好哦。(ﾟ▽ﾟ)</span>'
         M.toast({ html: toastHTML })
     }
