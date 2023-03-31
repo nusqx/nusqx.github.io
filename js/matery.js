@@ -104,14 +104,14 @@ $(function () {
             selector: '.img-item',
             // 启用字幕
             subHtmlSelectorRelative: true,
-            showThumbByDefault: false
+            //showThumbByDefault: false
             //这句加上2023/3/31
         });
         // 懒加载防止插件冲突
         /*网站加载逻辑问题 网站加载逻辑问题：图片最后加载  modify 修改时间：2023.3.31*/
-        //$(document).find('img[data-original]').each(function(){
-         //   $(this).parent().attr("href", $(this).attr("data-original")); 
-        //});
+        $(document).find('img[data-original]').each(function(){
+           $(this).parent().attr("href", $(this).attr("data-original")); 
+        });
 
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
