@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>计算机专业课问答</title>
+      <link href="/2023/04/01/ji-suan-ji-zhuan-ye-ke-wen-da/"/>
+      <url>/2023/04/01/ji-suan-ji-zhuan-ye-ke-wen-da/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、计算机组成原理"><a href="#一、计算机组成原理" class="headerlink" title="一、计算机组成原理"></a>一、计算机组成原理</h2><ol><li><p>上溢：双符号位的最高位表示的始终是结果的正负值，两个数进行运算，得到的结果的绝对值超过最大表示范围。两个正数的运算结果超出了数值位的表示的最大范围，所以数值位进位到符号位了，说明，其绝对值超过了表示的最大范围，为上溢。<strong>定点整数之间只会发生上溢</strong>。</p></li><li><p>下溢：两个浮点数运算，得到的结果的绝对值超过最小的表示范围。两个数是负数，这个两个数的运算结果超过了数值位的最小范围，所以数值位上的1被借走了，说明其绝对值超过了表示的最小范围，为下溢。<strong>只有浮点数的运算会发生下溢</strong>。</p></li><li><p>边界对齐：以空间换时间的思路，起始地址要能够被自身长度整除。采用边界对齐后，访问一个字只需要一次访存。</p></li><li><p>存储方式：大端存储和小端存储。</p></li><li><p>大端方式：高字节存储在低地址（顺着存），小端方式：高字节存储在高地址（逆着存）。</p></li><li><p>浮点数加减运算：</p><ul><li><p>对阶：小阶向大阶看齐</p></li><li><p>尾数加减</p></li><li><p>规格化</p><ul><li>左规：尾数的最高位为非有效位时进行左规</li><li>右规：尾数溢出时右规</li></ul></li><li><p>舍入：在右规和对阶的过程中都有可能存在舍入的问题</p></li><li><p>溢出判断：</p><ul><li>阶码上溢：抛出异常</li><li>阶码下溢：按机器0处理</li></ul></li></ul></li><li><p>IEEE 754 标准：阶码用移码表示，尾数用原码表示，隐藏最高位的1。</p></li><li><p>并行进位加法器：加法器的多个进位同时产生（通过进位产生函数和进位传递函数）。</p></li><li><p>计算机的多级存储系统：</p><ul><li>主存-缓存：用来缓解速度压力，完全由硬件实现，缓存是主存的副本</li><li>主存-辅存：用来缓解容量压力，有操作系统和硬件配合实现，主存是辅存的副本</li></ul></li><li></li></ol><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机专业课 </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C指针</title>
       <link href="/2023/03/29/c-zhi-zhen/"/>
       <url>/2023/03/29/c-zhi-zhen/</url>
