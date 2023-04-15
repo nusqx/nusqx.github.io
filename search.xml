@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Python（二）</title>
+      <link href="/2023/04/15/python2/"/>
+      <url>/2023/04/15/python2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="一、函数"><a href="#一、函数" class="headerlink" title="一、函数"></a>一、函数</h3><ol><li><p>抽象：抽象使我们能以一种区分所谓的逻辑对象和物质对象的方式来看待问题及其解决方案。如，求和函数。</p></li><li><p>Python中内置了很多函数，可以在交互式命令行通过<code>help(function_name)</code>查看函数function_name的帮助信息。</p></li><li><p>数据类型转换：内置数据类型转换函数</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">int('123') # 123int(12.34) # 12float('12.34') # 12.34str(1.23) # '1.23'str(100) # '100'bool(1) # Truehex(10) # '0xa' 字符串<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">a = absa(-10) # 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol><h3 id="二、函数定义"><a href="#二、函数定义" class="headerlink" title="二、函数定义"></a>二、函数定义</h3><ol><li><p><code>def</code>语句，依次写出函数名、括号、括号中的参数和冒号，然后在缩进块中编写函数体，函数的返回值用return语句返回。</p></li><li><p>函数体内部的语句在执行时，一旦执行到return时，函数就执行完毕，并将结果返回。因此，函数内部通过条件判断和循环可以实现非常复杂的逻辑。如果没有return语句，函数执行完毕后也会返回结果，只是结果为<code>None</code>。<code>return None</code>可以简写为<code>return</code>。</p></li><li><p>把定义的函数保存在<code>file.py</code>文件，可以在该文件的当前目录下启动Python解释器，用<code>from file import function_name</code>来导入<code>function_name()</code></p></li><li><p><strong>空函数</strong>，用<code>pass</code>语句，可以用来作为占位符</p></li><li><p><strong>参数检查</strong>，自定义的函数使用内置函数<code>isinstance()</code>实现</p></li><li><p><strong>返回多个值</strong>，实则返回的是一个tuple，但是，在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple，但写起来更方便。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def my_abs(x):    if not isinstance(x, (int,float)):        raise TypeError('bad operand type')    if x &gt;= 0:        return x    else:        return -xprint(my_abs(-10))def nop():    passimport mathdef move(x,y,step,angle=0):    nx = x + step * math.cos(angle)    ny = y - step * math.sin(angle)    return nx,nyx, y = move(100, 100, 60, math.pi / 6)print(x, y)def quadratic(a, b, c):    x1 = (-b + math.sqrt(b**2-(4*a*c))) / (2 * a)    x2 = (-b - math.sqrt(b**2-(4*a*c))) / (2 * a)    return x1, x2q = quadratic(2, 3, 1)print(q)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p><strong>位置参数</strong>，函数有两个参数：<code>x</code>和<code>n</code>，这两个参数都是位置参数，调用函数时，传入的两个值按照位置顺序依次赋给参数<code>x</code>和<code>n</code>。</p></li><li><p><strong>默认参数</strong>，如def power(x, n=2): n为默认参数。</p></li><li><p>默认参数可以简化函数的调用。设置默认参数时，有几点要注意：</p><ul><li>必选参数在前，默认参数在后，否则Python的解释器会报错；</li><li>如何设置默认参数，当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。</li><li>使用默认参数最大的好处是能降低调用函数的难度。</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python">def enroll(name, gender, age, city='YZU'):    print('name:',name)    print('gender:',gender)    print('age:',age)    print('city:',city)enroll('nusqx', 'male', 22)enroll('yx', 'female', 22, city='JNU')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p></li><li><p>定义默认参数要牢记一点：默认参数必须指向不变对象！</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def add_end(L = []):    L.append('END')    return L#默认参数是[]，但是函数似乎每次都“记住了”上次添加了`'END'`后的list。add_end([1,2,3]) # [1, 2, 3, 'END']add_end() # ['END']add_end() # ['END', 'END']#要修改上面的例子，我们可以用None这个不变对象来实现：def add_end2(L=None):    if L is None:        L = []    L.append('END')    return Ladd_end2([1,2,3]) # [1, 2, 3, 'END']add_end2() # ['END']add_end2() # ['END']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p><strong>可变参数</strong>，传入的参数个数是可变的。可变参数允许传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。Python允许在list或tuple前面加一个<code>*</code>号，把list或tuple的元素变成可变参数传进去。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def calc1(numbers):    sum = 0    for n in numbers:        sum = sum + n * n    return sumcalc1([1,2,3]) # 14 calc1((1,2,3)) # 14# 把函数的参数改为可变参数：def calc2(*number):    sum = 0    for n in number:        sum = sum + n * n    return sumcalc2(1,2,3) # 14# 如果已经有一个list或tuple，调用可变参数如下：nums = [1, 2, 3]calc2(nums[0],nums[1],nums[2]) # 14clac2(*nums) # 14<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p><code>*nums</code>表示把<code>nums</code>这个list的所有元素作为可变参数传进去。</p></li><li><p><strong>关键字参数</strong>，关键字参数允许传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个<code>dict</code>，如果调用者愿意提供更多的参数，也能收到。试想正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求。和可变参数类似，也可以先组装出一个dict，然后，把该dict转换为关键字参数传进去。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def person(name, age, **kw):    print('name:', name, 'age:', age, 'other:', kw)person('Bob',30)person('Michael', 18, city='YZ')# 函数person除了必选参数name和age外，还接受关键字参数kw# 可以只传入必选参数，也可以传入任意个数的关键字参数extra = {'city': 'Beijing', 'job': 'Engineer'}person('Jack', 24, city=extra['city'], job=extra['job'])person('Jack', 24, **extra)# **extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数，kw将获得一个dict，注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p><strong>命名关键字参数</strong>，对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过<code>kw</code>检查。调用者仍可以传入不受限制的关键字参数，如果要限制关键字参数的名字，就可以用<strong>命名关键字参数</strong>。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def person(name, age, **kw):    if 'city' in kw:        # 有city参数        pass    if 'job' in kw:        # 有job参数        pass    print('name:', name, 'age:', age, 'other:', kw)# 调用者仍可以传入不受限制的关键字参数person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)    # 如果要限制关键字参数的名字，就可以用命名关键字参数，只接收city和job作为关键字参数def person(name, age, *, city, job):    print(name, age, city, job)person('Jack', 24, city='Beijing', job='Engineer')#命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。#如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了def person3(name, age, *args, city, job):    print(name, age, args, city, job)#命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错#命名关键字参数可以有缺省值，从而简化调用def person4(name, age, *, city='Beijing', job):    print(name, age, city, job)#由于命名关键字参数city具有默认值，调用时，可不传入city参数person('Jack', 24, job='Engineer')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>使用命名关键字参数时，要特别注意，如果没有可变参数，就必须加一个<code>*</code>作为特殊分隔符。如果缺少<code>*</code>，Python解释器将无法识别位置参数和命名关键字参数。</p></li><li><p><strong>参数组合</strong>，在Python中定义函数，可以用<strong>必选参数、默认参数、可变参数、关键字参数和命名关键字参数</strong>，这5种参数都可以组合使用。<strong>参数定义的顺序</strong>必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def f1(a, b, c=0, *args, **kw):    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)def f2(a, b, c=0, *, d, **kw):    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)f1(1,2,3,'a','b') #a= 1 b= 2 c= 3 args= ('a', 'b') kw= {}f1(1,2,3,'a','b','c',x = 99,y=100) # a= 1 b= 2 c= 3 args= ('a', 'b', 'c') kw= {'x': 99, 'y': 100}f2(1,2,d=99,ex=5,ee=None) # a = 1 b = 2 c = 0 d = 99 kw = {'ex': 5, 'ee': None}# 通过一个tuple和dict，你也可以调用上述函数args = (1, 2, 3, 4)kw = {'d': 99, 'x': '#'}f1(*args, **kw)# a = 1 b = 2 c = 3 args = (4,) kw = {'d': 99, 'x': '#'}args = (1, 2, 3)kw = {'d': 88, 'x': '#'}f2(*args, **kw) # a = 1 b = 2 c = 3 d = 88 kw = {'x': '#'}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>递归函数：使用递归函数的优点是逻辑简单清晰，缺点是过深的调用会导致栈溢出。</p></li><li><p>针对尾递归优化的语言可以通过尾递归防止栈溢出。尾递归事实上和循环是等价的，没有循环语句的编程语言只能通过尾递归实现循环。Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">def fact(n): # 阶乘    if n == 1:        return 1    else:        return n * fact(n-1)fact(5)def move(n, a, b, c): # 汉诺塔，n是第一个柱子上圆盘数    if n == 1:        print('move', a, '--&gt;', c)    else:        move(n-1, a, c, b)        move(1, a, b, c)        move(n-1, b, a, c)move(3, 'A', 'B', 'C')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><blockquote><p>函数参数小结</p><p>Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。</p><p>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！</p><p>要注意定义可变参数和关键字参数的语法：</p><p><code>*args</code>是可变参数，args接收的是一个tuple；</p><p><code>**kw</code>是关键字参数，kw接收的是一个dict。</p><p>以及调用函数时如何传入可变参数和关键字参数的语法：</p><p>可变参数既可以直接传入：<code>func(1, 2, 3)</code>，又可以先组装list或tuple，再通过<code>*args</code>传入：<code>func(*(1, 2, 3))</code>；</p><p>关键字参数既可以直接传入：<code>func(a=1, b=2)</code>，又可以先组装dict，再通过<code>**kw</code>传入：<code>func(**{'a': 1, 'b': 2})</code>。</p><p>使用<code>*args</code>和<code>**kw</code>是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。</p><p>命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。</p><p>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符<code>*</code>，否则定义的将是位置参数。</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机专业课问答</title>
       <link href="/2023/04/01/ji-suan-ji-zhuan-ye-ke-wen-da/"/>
       <url>/2023/04/01/ji-suan-ji-zhuan-ye-ke-wen-da/</url>
@@ -112,7 +141,7 @@
     
     
     <entry>
-      <title>python</title>
+      <title>Python（一）</title>
       <link href="/2022/01/12/python/"/>
       <url>/2022/01/12/python/</url>
       
@@ -128,9 +157,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> python </tag>
             
@@ -182,13 +211,13 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> C语言 </tag>
             
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -213,11 +242,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> C语言 </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
