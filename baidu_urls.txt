@@ -2,9 +2,9 @@ https://nusqx.top/2024/06/15/collab/
 https://nusqx.top/2024/06/10/trainsoatmodel/
 https://nusqx.top/2024/06/03/nlp/
 https://nusqx.top/2024/06/03/imageclassifer/
+https://nusqx.top/2024/06/02/regression/
 https://nusqx.top/2024/05/26/multicategory/
 https://nusqx.top/2024/02/26/ner/
 https://nusqx.top/2024/02/25/mnist/
 https://nusqx.top/2024/01/28/production/
 https://nusqx.top/2024/01/22/dl2/
-https://nusqx.top/2023/12/22/dsandad1/
