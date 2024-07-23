@@ -434,14 +434,7 @@
 
   
   <url>
-    <loc>https://nusqx.top/tags/cpp/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nusqx.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://nusqx.top/tags/CUDA/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -455,7 +448,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/CUDA/</loc>
+    <loc>https://nusqx.top/tags/cpp/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -490,6 +490,13 @@
   </url>
   
   <url>
+    <loc>https://nusqx.top/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nusqx.top/tags/ML/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -504,13 +511,6 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nusqx.top/tags/NLP/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -518,21 +518,7 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/fastai/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nusqx.top/tags/python/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nusqx.top/tags/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -567,14 +553,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4/</loc>
+    <loc>https://nusqx.top/tags/fastai/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/%E8%A1%A8%E6%A0%BC%E5%BB%BA%E6%A8%A1/</loc>
+    <loc>https://nusqx.top/tags/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -609,7 +595,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/cv/</loc>
+    <loc>https://nusqx.top/tags/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/tags/%E8%A1%A8%E6%A0%BC%E5%BB%BA%E6%A8%A1/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -637,14 +630,7 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/nlp/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nusqx.top/tags/%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
+    <loc>https://nusqx.top/tags/cv/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -665,7 +651,28 @@
   </url>
   
   <url>
+    <loc>https://nusqx.top/tags/nlp/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/tags/%E9%A2%84%E8%AE%AD%E7%BB%83/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nusqx.top/tags/%E6%B5%8B%E8%AF%95%E4%B8%8E%E5%BC%82%E5%B8%B8/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/tags/PyTorch/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -686,21 +693,7 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/%E8%AE%AD%E7%BB%83%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nusqx.top/tags/%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nusqx.top/tags/PyTorch/</loc>
+    <loc>https://nusqx.top/tags/%E5%9B%9E%E5%BD%92/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -721,7 +714,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/tags/%E5%9B%9E%E5%BD%92/</loc>
+    <loc>https://nusqx.top/tags/%E8%AE%AD%E7%BB%83%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/tags/%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -730,7 +730,7 @@
 
   
   <url>
-    <loc>https://nusqx.top/categories/C/</loc>
+    <loc>https://nusqx.top/categories/CUDA/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -744,7 +744,7 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/CUDA/</loc>
+    <loc>https://nusqx.top/categories/C/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -765,13 +765,6 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nusqx.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -780,6 +773,13 @@
   
   <url>
     <loc>https://nusqx.top/categories/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nusqx.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -807,14 +807,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4/</loc>
+    <loc>https://nusqx.top/categories/Markdown/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/Markdown/</loc>
+    <loc>https://nusqx.top/categories/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -835,14 +835,14 @@
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/</loc>
+    <loc>https://nusqx.top/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nusqx.top/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://nusqx.top/categories/%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
