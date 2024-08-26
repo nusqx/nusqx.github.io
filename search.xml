@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Diffusion Model</title>
+      <link href="/2024/08/26/ddpm/"/>
+      <url>/2024/08/26/ddpm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Diffusion-Model"><a href="#Diffusion-Model" class="headerlink" title="Diffusion Model"></a>Diffusion Model</h1><h2 id="Denoising-Diffusion-Probabilistic-Models-DDPM"><a href="#Denoising-Diffusion-Probabilistic-Models-DDPM" class="headerlink" title="Denoising Diffusion Probabilistic Models(DDPM)"></a>Denoising Diffusion Probabilistic Models(DDPM)</h2><h3 id="forward-close-form"><a href="#forward-close-form" class="headerlink" title="forward(close-form)"></a>forward(close-form)</h3><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408261520211.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">DDPM前向过程</div></center><p>$$\mathrm{If<del>}X\sim\mathcal{N}(\mu_X,\sigma_X^2)\quad Y\sim\mathcal{N}(\mu_Y,\sigma_Y^2)\Z=X+Y\\mathrm{Then</del>}Z\sim\mathcal{N}(\mu_X+\mu_Y,\sigma_X^2+\sigma_Y^2)$$</p><p>Accordingly，</p><p>$$\begin{aligned}<br>\boldsymbol{x}<em>{t}&amp; =\sqrt{\alpha_t}\boldsymbol{x}</em>{t-1}+\sqrt{1\boldsymbol{-}\alpha_t}\boldsymbol{\varepsilon}<em>{t-1} \<br>&amp;=\sqrt{\alpha_t}\left(\sqrt{\alpha</em>{t-1}}x_{t-2}+\sqrt{1-\alpha_{t-1}}\boldsymbol{\varepsilon}<em>{t-2}\right)+\sqrt{1-\alpha_t}\boldsymbol{\varepsilon}</em>{t-1} \<br>&amp;=\sqrt{\alpha_t\alpha_{t-1}}x_{t-2}+\left(\sqrt{\alpha_t-\alpha_t\alpha_{t-1}}\boldsymbol{\varepsilon}<em>{t-2}+\sqrt{1-\alpha_t}\boldsymbol{\varepsilon}</em>{t-1}\right)\&amp;= \cdots\<br>&amp;=\sqrt{\alpha_t\alpha_{t-1}\cdots\alpha_1}\boldsymbol{x}<em>0+\sqrt{1-\alpha_t\alpha</em>{t-1}\cdots\alpha_1}\boldsymbol{\varepsilon} \<br>&amp;=\sqrt{\overline{\alpha}_t}\boldsymbol{x}_0+\sqrt{1-\overline{\alpha}_t}\boldsymbol{\varepsilon}<br>\end{aligned}$$</p><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408261712382.png" width="500">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">一步前向过程</div></center><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408261712876.png" width="500">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">t步前向过程</div></center><h3 id="q-x-t-1-x-t-x-0"><a href="#q-x-t-1-x-t-x-0" class="headerlink" title="$q(x_{t-1}|x_t,x_0)$"></a>$q(x_{t-1}|x_t,x_0)$</h3><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408262018470.png" width="600">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">后向过程</div></center><p>假设为马尔科夫模型，如果知道$x_t,x_0$，那么$q(x_{t-1}|x_t,x_0)$是个确定的分布</p><p>$$q(x_{t-1}|x_t,x_0)=\frac{q(x_{t-1},x_t,x_0)}{q(x_t,x_0)}=\frac{q(x_t\mid x_{t-1})q(x_{t-1}\mid x_0)q(x_0)}{q(x_t\mid x_0)q(x_0)}=\frac{q(x_t\mid x_{t-1})q(x_{t-1}\mid x_0)}{q(x_t\mid x_0)}$$</p><p><strong>Reverse</strong></p><p>$$q(\boldsymbol{x}_{t-1}|\boldsymbol{x}<em>t,\boldsymbol{x}<em>0)=\mathcal{N}\left(\boldsymbol{x}</em>{t-1};\frac{\sqrt{\alpha_t}\left(1-\overline{\alpha}</em>{t-1}\right)\boldsymbol{x}<em>t+\sqrt{\overline{\alpha}</em>{t-1}}\left(1-\alpha_t\right)\boldsymbol{x}_0}{1-\overline{\alpha}<em>t},\frac{\left(1-\alpha_t\right)\left(1-\overline{\alpha}</em>{t-1}\right)}{1-\overline{\alpha}_t}\boldsymbol{I}\right)$$</p><p>$$\begin{aligned}q(x_t\mid x_{t-1})&amp;\sim\mathcal{N}(x_t;\sqrt{\alpha_t}x_{t-1},1-\alpha_t)\\q(x_{t-1}\mid x_0)&amp;\sim\mathcal{N}(x_{t-1};\sqrt{\overline{\alpha}<em>{t-1}}x_0,1-\overline{\alpha}</em>{t-1})\\q(x_t\mid x_0)&amp;\sim\mathcal{N}(x_t;\sqrt{\overline{\alpha}_t}x_0,1-\overline{\alpha}_t)\end{aligned}$$</p><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408262015976.png" width="500">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">分量都是高斯分布</div></center><p>如果知道$x_0$，</p><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408262025804.png" width="900">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">if we know x0</div></center><p>$$\frac{\sqrt{\alpha_{t}}\left(1-\bar{\alpha}<em>{t-1}\right)\boldsymbol{x}</em>{t}+\sqrt{\bar{\alpha}<em>{t-1}}\left(1-\alpha</em>{t}\right)\boldsymbol{x}<em>{0}}{1-\overline{\alpha}</em>{t}}\boxed{\Longrightarrow}\frac{1}{\sqrt{\alpha_{t}}}\left(\boldsymbol{x}<em>{t}-\frac{1\boldsymbol{-}\alpha</em>{t}}{\sqrt{1\boldsymbol{-}\overline{\alpha}<em>{t}}}\boldsymbol{\varepsilon}</em>{t}\right)$$</p><h3 id="training"><a href="#training" class="headerlink" title="training"></a>training</h3><p>$$\begin{aligned}&amp;\underset{\theta}{\operatorname*{argmin}}\frac1{2\sigma_q^2(t)}[||\boldsymbol{\mu}_\theta-\boldsymbol{\mu}_q||\frac22]\&amp;\underset{\theta}{\operatorname*{argmin}}\frac1{2\sigma_q^2(t)}\frac{(1-\alpha_t)^2}{(1-\bar{\alpha}_t)\alpha_t}[||\boldsymbol{\varepsilon}_t-\hat{\boldsymbol{\varepsilon}}_\theta(\boldsymbol{x}_t,t)||_2^2]\end{aligned}$$原文对其简化·</p><h3 id="sampling"><a href="#sampling" class="headerlink" title="sampling"></a>sampling</h3><p>$$\boldsymbol{x}_{t-1}=\frac1{\sqrt{\alpha_t}}\left(\boldsymbol{x}_t-\frac{1-\alpha_t}{\sqrt{1-\overline{\alpha}_t}}\boldsymbol{\varepsilon}_\theta(\boldsymbol{x}_t,t)\right)+\sigma_t\boldsymbol{z}$$</p><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202408262038700.png" width="900">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">DDPM</div></center><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 生成模型 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DDPM </tag>
+            
+            <tag> 生成模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue3开发案例</title>
       <link href="/2024/08/10/vue-kai-fa-an-li/"/>
       <url>/2024/08/10/vue-kai-fa-an-li/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> Vue </tag>
-            
             <tag> 前端开发 </tag>
+            
+            <tag> Vue </tag>
             
         </tags>
       
@@ -74,9 +101,9 @@
       
         <tags>
             
-            <tag> Vue </tag>
-            
             <tag> 前端开发 </tag>
+            
+            <tag> Vue </tag>
             
         </tags>
       
@@ -479,11 +506,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -1078,11 +1105,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -1136,9 +1163,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
