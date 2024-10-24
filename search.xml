@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Redis</title>
+      <link href="/2024/10/15/redis/"/>
+      <url>/2024/10/15/redis/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h2><h3 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h3><p>Redis是一个基于<strong>内存</strong>的 key-value 结构数据库。</p><table><thead><tr><th align="center">key</th><th align="center">value</th></tr></thead><tbody><tr><td align="center">id</td><td align="center">001</td></tr><tr><td align="center">name</td><td align="center">小孙</td></tr><tr><td align="center">city</td><td align="center">成都</td></tr></tbody></table><ul><li>基于内存存储，读写性能高</li><li>适合存储热点数据（热点商品、资讯、新闻）</li><li>企业应用广泛</li></ul><p>官网：<a href="https://redis.io/">https://redis.io</a></p><p>中文网：<a href="https://www.redis.net.cn/">https://www.redis.net.cn/</a></p><h3 id="Redis下载与安装"><a href="#Redis下载与安装" class="headerlink" title="Redis下载与安装"></a>Redis下载与安装</h3><p>Windows版属于绿色软件，解压即用</p><p>redis.windows.conf 配置文件</p><p>redis-cli.exe 客户端</p><p>redis-server.exe 服务端</p><blockquote></blockquote><h3 id="Redis服务启动与停止"><a href="#Redis服务启动与停止" class="headerlink" title="Redis服务启动与停止"></a>Redis服务启动与停止</h3><p>cmd：redis-server.exe redis.windows.conf</p><p>停止：ctrl+C.</p><blockquote><p><a href="https://www.runoob.com/redis/redis-install.html">https://www.runoob.com/redis/redis-install.html</a></p><p>图形化工具：<a href="https://github.com/qishibo/AnotherRedisDesktopManager">https://github.com/qishibo/AnotherRedisDesktopManager</a></p></blockquote><h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><p>Redis存储的是key-value结构的数据，其中key是字符串类型，</p><p>value有5种常用的数据类型</p><ul><li>字符串string</li><li>哈希 hash</li><li>列表list</li><li>集合set</li><li>有序集合 sorted set/zset</li></ul><p>数据类型特点：</p><center>    <img src="https://gitee.com/nusqx/picgo/raw/master/blog/202410241106072.png" width="400">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">数据类型特点</div></center><ul><li>字符串(string): 普通字符串，Redis中最简单的数据类型</li><li>哈希(hash): 也叫散列，类似于Java中的HashMap结构</li><li>列表(list): 按照插入顺序排序，可以有重复元素，类似于Java中的LinkedList</li><li>集合(set):无序集合，没有重复元素，类似于Java中的HashSet</li><li>有序集合(sorted set /zset): 集合中每个元素关联一个分数(score)，根据分数升序排序，没有重复元素</li></ul><h2 id="Redis常用命令"><a href="#Redis常用命令" class="headerlink" title="Redis常用命令"></a>Redis常用命令</h2><h3 id="字符串操作命令"><a href="#字符串操作命令" class="headerlink" title="字符串操作命令"></a>字符串操作命令</h3><p>Redis 字符串类型常用命令：</p><ul><li>SET key value 设置指定key的值</li><li>GET key 获取指定key的值</li><li>SETEX key seconds value 设置指定key的值，并将 key 的过期时间设为 seconds秒</li><li>SETNX key value 只有在key不存在时设置key的值</li></ul><h3 id="哈希操作命令"><a href="#哈希操作命令" class="headerlink" title="哈希操作命令"></a>哈希操作命令</h3><p>Redis hash 是一个string类型的 field 和 value 的映射表，hash特别适合用于存储对象，常用命令：</p><ul><li>HSET key field value 将哈希表 key 中的字段 field 的值设为 value</li><li>HGET key field 获取存储在哈希表中指定字段的值</li><li>HDEL key field 删除存储在哈希表中的指定字段</li><li>HKEYS key 获取哈希表中所有字段</li><li>HVALS key 获取哈希表中所有值</li></ul><h3 id="列表操作命令"><a href="#列表操作命令" class="headerlink" title="列表操作命令"></a>列表操作命令</h3><p>Redis 列表是简单的字符串列表，按照插入顺序排序，常用命令：</p><ul><li>LPUSH key value1 [value2] 将一个或多个值插入到列表头部</li><li>LRANGE key start stop 获取列表指定范围内的元素</li><li>RPOP key 移除并获取列表最后一个元素</li><li>LLEN key 获取列表长度</li></ul><h3 id="集合操作命令"><a href="#集合操作命令" class="headerlink" title="集合操作命令"></a>集合操作命令</h3><p>Redis set 是string类型的无序集合。集合成员是唯一的，集合中不能出现重复的数据，常用命令：</p><ul><li>SADD key member1[member2] 向集合添加一个或多个成员</li><li>SMEMBERS key 返回集合中的所有成员</li><li>SCARD key 获取集合的成员数</li><li>SINTER key1 [key2] 返回给定所有集合的交集</li><li>SUNION key1 [key2] 返回所有给定集合的并集</li><li>SREM key member1 [member2] 删除集合中一个或多个成员</li></ul><h3 id="有序集合操作命令"><a href="#有序集合操作命令" class="headerlink" title="有序集合操作命令"></a>有序集合操作命令</h3><p>Redis有序集合是string类型元素的集合，目不允许有重复成员。每个元素都会关联一个double类型的分数。常用命令:</p><ul><li>ZADD key score1 member1 [score2 member2] 向有序集合添加一个或多个成员</li><li>ZRANGE key start stop [WITHSCORES] 通过索引区间返回有序集合中指定区间内的成员</li><li>ZINCRBY key increment member 有序集合中对指定成员的分数加上增量increment</li><li>ZREM key member [member …] 移除有序集合中的一个或多个成员</li></ul><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><p>Redis的通用命令是不分数据类型的，都可以使用的命令：</p><ul><li>KEYS pattern 查找所有符合给定模式(pattern)的 key</li><li>EXISTS key 检查给定 key 是否存在</li><li>TYPE key 返回 key 所储存的值的类型</li><li>DEL key 该命令用于在 key 存在时删除 key</li></ul><h2 id="在Java中操作Redis"><a href="#在Java中操作Redis" class="headerlink" title="在Java中操作Redis"></a>在Java中操作Redis</h2><h3 id="Redis的Java客户端"><a href="#Redis的Java客户端" class="headerlink" title="Redis的Java客户端"></a>Redis的Java客户端</h3><p>Redis 的Java 客户端很多，常用的几种：</p><ul><li><p>Jedis</p></li><li><p>Lettuce</p></li><li><p>Spring Data Redis</p><p>Spring Data Redis 是 Spring的一部分，对 Redis 底层开发包进行了高度封装。</p><p>在Spring 项目中，可以使用Spring Data Redis来简化操作。</p></li></ul><h3 id="Spring-Data-Redis使用方式"><a href="#Spring-Data-Redis使用方式" class="headerlink" title="Spring Data Redis使用方式"></a>Spring Data Redis使用方式</h3><p>操作步骤：</p><ul><li><p>导入Spring Data Redis 的maven坐标</p><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-data-redis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>配置Redis数据源</p></li><li><p>编写配置类，创建RedisTemplate对象</p></li><li><p>通过RedisTemplate对象操作Redis</p></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Diffusion Model</title>
       <link href="/2024/08/26/ddpm/"/>
       <url>/2024/08/26/ddpm/</url>
@@ -47,9 +74,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -101,9 +128,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -209,9 +236,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -317,9 +344,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -371,9 +398,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -506,11 +533,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -602,9 +629,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -1105,11 +1132,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -1163,9 +1190,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> C语言 </tag>
             
