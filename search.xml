@@ -155,9 +155,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -209,9 +209,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -301,7 +301,7 @@
     
     
     <entry>
-      <title>SpringBoot项目部署与多环境开发</title>
+      <title>SpringBoot3项目部署与多环境开发</title>
       <link href="/2024/06/05/springboot-3/"/>
       <url>/2024/06/05/springboot-3/</url>
       
@@ -409,7 +409,7 @@
     
     
     <entry>
-      <title>SpringBoot实战篇(二)</title>
+      <title>SpringBoot3实战篇(二)</title>
       <link href="/2024/05/28/springboot-2/"/>
       <url>/2024/05/28/springboot-2/</url>
       
@@ -614,13 +614,13 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
             
             <tag> C语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -811,7 +811,7 @@
       
       <categories>
           
-          <category> python </category>
+          <category> Python </category>
           
       </categories>
       
@@ -1213,13 +1213,13 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
             
             <tag> C语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -1271,11 +1271,11 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> C语言 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
