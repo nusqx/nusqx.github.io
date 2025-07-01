@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
         </tags>
       
@@ -155,9 +155,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -209,9 +209,9 @@
       
         <tags>
             
-            <tag> 前端开发 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 前端开发 </tag>
             
         </tags>
       
@@ -317,9 +317,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -425,9 +425,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -479,9 +479,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -614,11 +614,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -710,9 +710,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -831,6 +831,33 @@
     
     
     <entry>
+      <title>数据库系统（三）关系模式设计之规范形式</title>
+      <link href="/2023/05/26/db3/"/>
+      <url>/2023/05/26/db3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关系模式设计之规范形式"><a href="#关系模式设计之规范形式" class="headerlink" title="关系模式设计之规范形式"></a>关系模式设计之规范形式</h1><h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><p>(1) 函数依赖的定义<br>设 <code>R(U)</code> 是属性集合 $ U = {A_1,A_2,…,A_n} $ 上的一个关系模式，<code>X</code>, <code>Y</code> 是 <code>U</code> 上的两个子集。若对 <code>R(U)</code> 的任意可能关系 <code>r</code>，<code>r</code> 中不存在两个元组在 <code>X</code> 中的属性值相等而在 <code>Y</code> 中的属性值不等，则称 <strong>“X函数决定Y”</strong> 或 **”Y函数依赖于X”**，记作 $ X \to Y $。</p><p>示例</p><p><strong>属性全集</strong>：<br>$ U = {\text{学号}, \text{姓名}, \text{年龄}, \text{班号}, \text{班长}, \text{课号}, \text{成绩}} $  </p><p>▢ $ \text{学号} \to {\text{姓名}, \text{年龄}} $<br>▢ $ \text{班号} \to \text{班长} $<br>▢ $ {\text{学号}, \text{课号}} \to \text{成绩} $  z</p><hr><blockquote><p><strong>设计关系模式时</strong><br>除给出属性全集外，还需明确给出 <strong>数据依赖集合</strong>。</p></blockquote><hr><h3 id="注"><a href="#注" class="headerlink" title="注"></a>注</h3><p>函数依赖的成立取决于：  </p><ol><li>问题领域的限定和分析；  </li><li>业务规则的正确理解。</li></ol><p><strong>示例说明</strong>：  </p><ul><li>若问题领域中<strong>学生无重名</strong>，则存在：<br>$ \text{姓名} \to {\text{年龄}, \text{家庭住址}} $  </li><li>若问题领域中<strong>学生有重名</strong>，则上述依赖不成立。</li></ul><h2 id="函数依赖的特性"><a href="#函数依赖的特性" class="headerlink" title="函数依赖的特性"></a>函数依赖的特性</h2><ol><li><p><strong>非平凡函数依赖</strong><br>对 $ X\rightarrow Y $，但 $ Y\subsetneq X $，则称 $ X\rightarrow Y $ 为非平凡的函数依赖。</p></li><li><p><strong>决定因素</strong><br>若 $ X\rightarrow Y $，则任意两个元组在X上值相等时，在Y上值必然相等，称X为决定因素。</p></li><li><p><strong>相互函数依赖</strong><br>若 $ X\rightarrow Y $ 且 $ Y\rightarrow X $，则记作 $ X\leftrightarrow Y $。</p></li><li><p><strong>非函数依赖表示</strong><br>若Y不函数依赖于X，则记作 $ X\not\rightarrow Y $。</p></li><li><p><strong>依赖的适用范围</strong></p><ul><li>基于模式R：对任意关系r成立</li><li>基于具体关系r：仅对某一特定关系r成立</li></ul></li><li><p><strong>特殊情形下的恒等依赖</strong><br>如一关系r的某属性集X，r中不存在X值相等的两个元组，则 $ X\rightarrow Y $ 恒成立。</p></li></ol><h2 id="函数依赖类型：完全依赖与部分依赖"><a href="#函数依赖类型：完全依赖与部分依赖" class="headerlink" title="函数依赖类型：完全依赖与部分依赖"></a>函数依赖类型：完全依赖与部分依赖</h2><h3 id="Definition-部分或完全函数依赖"><a href="#Definition-部分或完全函数依赖" class="headerlink" title="[Definition] 部分或完全函数依赖"></a>[Definition] 部分或完全函数依赖</h3><p>在关系模式 <code>R(U)</code> 中：</p><table><thead><tr><th>依赖类型</th><th>定义</th><th>表示法</th></tr></thead><tbody><tr><td><strong>完全函数依赖</strong></td><td>若 <code>X → Y</code> 且对 <code>X</code> 的任意真子集 <code>X'</code> 都有 <code>X' ↛ Y</code></td><td>$ X \xrightarrow{f} Y $</td></tr><tr><td><strong>部分函数依赖</strong></td><td>若 <code>X → Y</code> 但存在 <code>X</code> 的真子集 <code>X'</code> 使得 <code>X' → Y</code></td><td>$ X \xrightarrow{p} Y $</td></tr></tbody></table><hr><h3 id="概念解析："><a href="#概念解析：" class="headerlink" title="概念解析："></a>概念解析：</h3><ol><li><p><strong>完全依赖的核心特征</strong>  </p><ul><li>决定因素 <code>X</code> 必须完整才能确定 <code>Y</code>  </li><li>移除 <code>X</code> 的任意属性都会破坏依赖关系<br><em>示例：</em><br>$ {\text{学号}, \text{课程号}} \xrightarrow{f} \text{成绩} $</li></ul></li><li><p><strong>部分依赖的识别</strong>  </p><ul><li><code>Y</code> 可由 <code>X</code> 的某个真子集单独决定  </li><li>存在属性冗余的决定因素<br><em>示例：</em><br>$ {\text{学号}, \text{姓名}} \xrightarrow{p} \text{年龄} $<br>（因 $\text{学号} → \text{年龄}$ 已成立）</li></ul></li></ol><hr><h3 id="视觉提示："><a href="#视觉提示：" class="headerlink" title="视觉提示："></a>视觉提示：</h3><ul><li>完全依赖符号：$ \xrightarrow{f} $ (f: full)  </li><li>部分依赖符号：$ \xrightarrow{p} $ (p: partial)  </li><li>非函数依赖符号：$ \not\rightarrow $</li></ul><h2 id="传递函数依赖"><a href="#传递函数依赖" class="headerlink" title="传递函数依赖"></a>传递函数依赖</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="[Definition]"></a>[Definition]</h3><p>在关系模式 <code>R(U)</code> 中，设 <code>X</code>, <code>Y</code>, <code>Z</code> 是 <code>U</code> 的子集。若满足：</p><ol><li>$ X \to Y $  </li><li>$ Y \to Z $  </li><li>$ Y \not\subset X $（即 Y 不是 X 的子集）  </li><li>$ Z \not\subset Y $  </li><li>$ Z \not\subset X $  </li><li>$ Y \not\to X $（即 Y 不能函数决定 X）</li></ol><p>则称 <strong>Z 传递函数依赖于 X</strong>，记作 $ X \xrightarrow{t} Z $（t: transitive）。</p><hr><h3 id="核心条件解析："><a href="#核心条件解析：" class="headerlink" title="核心条件解析："></a>核心条件解析：</h3><table><thead><tr><th>条件</th><th>数学表示</th><th>语义说明</th></tr></thead><tbody><tr><td><strong>依赖性</strong></td><td>$ X \to Y $ 且 $ Y \to Z $</td><td>存在依赖链传递关系</td></tr><tr><td><strong>非包含性</strong></td><td>$ Y \not\subset X $<br>$ Z \not\subset Y $<br>$ Z \not\subset X $</td><td>排除因集合包含关系导致的依赖</td></tr><tr><td><strong>非相互依赖</strong></td><td>$ Y \not\to X $</td><td>确保 Y 不是 X 的等价属性集</td></tr></tbody></table><blockquote><p><strong>传递依赖的本质</strong>：当且仅当依赖不能通过直接路径（$ X \to Z $）建立，但可通过中间属性 Y 间接推导时成立。</p></blockquote><hr><h3 id="示例说明："><a href="#示例说明：" class="headerlink" title="示例说明："></a>示例说明：</h3><p>学生选课系统中：<br>$ \text{学号} \to \text{班号} $<br>$ \text{班号} \to \text{班长} $<br>且满足非包含条件：</p><ul><li>班号 ⊄ 学号</li><li>班长 ⊄ 班号</li><li>班长 ⊄ 学号  </li><li>班号 ↛ 学号</li></ul><p>则 $ \text{学号} \xrightarrow{t} \text{班长} $</p><h3 id="Definition-候选键"><a href="#Definition-候选键" class="headerlink" title="[Definition] 候选键"></a>[Definition] 候选键</h3><p>设 $ K $ 为关系模式 $ R(U) $ 中的属性或属性组合，若满足：<br>$$ K \xrightarrow{f} U $$<br>则称 $ K $ 为 $ R(U) $ 上的 <strong>候选键</strong> (Candidate Key)。</p><hr><h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol><li><p><strong>主键选择</strong><br>可任选一候选键作为 $ R $ 的 <strong>主键</strong> (Primary Key)</p></li><li><p><strong>主属性划分</strong>  </p><ul><li>包含在任一候选键中的属性 → <strong>主属性</strong> (Prime Attribute)  </li><li>未包含在任何候选键中的属性 → <strong>非主属性</strong> (Non-Prime Attribute)</li></ul></li><li><p><strong>超键定义</strong><br>若 $ S \supset K $（$ S $ 真包含 $ K $）且 $ K $ 是候选键 →<br>$ S $ 为 <strong>超键</strong> (Super Key)</p></li></ol><hr><h3 id="概念关系图解"><a href="#概念关系图解" class="headerlink" title="概念关系图解"></a>概念关系图解</h3><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR    A<span class="token text string">[超键]</span> <span class="token arrow operator">--&gt;</span> B<span class="token text string">[候选键]</span> <span class="token arrow operator">--&gt;</span> C<span class="token text string">[主键]</span>    B <span class="token arrow operator">--&gt;</span> D<span class="token text string">[主属性]</span>    C <span class="token arrow operator">--&gt;</span> D    A <span class="token arrow operator">-.-&gt;</span> E<span class="token text string">[非主属性]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>外来键</strong><br>若R(U)中的属性或属性组合X并非R的候选键，但X却是另一关系的候选键，则称X为R的外来键(Foreign Key)，简称外键。</p><h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p>若关系模式R(U)中关系的每个分量都是不可分的数据项(值、原子)，则称R(U)属于第一范式，记为：R(U) ∈1NF。</p><p>1NF要求关系中不能有复合属性、多值属性及其组合。</p><p>将 非1NF转换为 1NF情况：将复合属性处理为简单属性；将多值属性与关键字单独组成一新的关系。</p><h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>若R(U)∈ 1NF 且 U中的每一<strong>非主属性</strong>完全函数依赖于<strong>候选键</strong>，则称R(U)属于第二范式，记为：R(U)∈2NF。</p><p>第二范式消除了非主属性对候选键的部分依赖。</p><h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><strong>第三范式 (3NF) 定义</strong>   若关系模式 $R(U, F) \in \text{2NF}$ 且 $R$ 中<strong>不存在</strong>以下情况：  </p><ul><li>候选键 $X$   </li><li>属性组 $Y \subseteq U$   </li><li>非主属性 $A$   </li><li>满足：   1. $A \notin X$ 且 $A \notin Y$   2. $Y \not\subseteq X$ (Y 不包含于 X)   3. $Y \nrightarrow X$ (Y 不函数决定 X)   4. $X \rightarrow Y$ 且 $Y \rightarrow A$   则称 $R(U)$ 属于<strong>第三范式</strong>，记为：   $$R(U) \in \text{3NF}$$</li></ul><p>第3范式消除了非主属性对侯选键的传递依赖</p><p>关系模式设计如满足第3范式，则一定能满足第2范式；反之则不然。</p><h2 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a>BCNF</h2><p>若 $R(U, F) \in \text{1NF}$，且对于任何 $X \rightarrow Y \in F$（或 $X \rightarrow A \in F$），当 $Y \not\subseteq X$（或 $A \notin X$）时，$X$ 必含有<strong>候选键</strong>，则称 $R(U)$ 属于 Boyce-Codd 范式，记为：$$R(U) \in \text{BCNF}$$</p><p><strong>[定理]</strong> 若 $R(U,F) \in \text{BCNF}$，则 $R(U,F) \in \text{3NF}$。</p><p><strong>证明</strong>：<br>（反证法）假设 $R(U,F) \in \text{BCNF}$ 但 $R(U,F) \notin \text{3NF}$。<br>依据 3NF 定义，必存在传递依赖：<br>$$\exists X \rightarrow Y,\ Y \rightarrow A$$<br>其中：  </p><ul><li>$X$ 是候选键  </li><li>$A \notin X$ 且 $A \notin Y$  </li><li>$Y \nrightarrow X$（即 $X \notin Y$）</li></ul><p>由于 $A \notin Y$，$Y \rightarrow A$ 违反 BCNF 的定义（BCNF 要求<strong>所有非平凡函数依赖的左侧必须包含候选键</strong>，但 $Y$ 不是候选键）。<br>故假设矛盾，定理得证。<br><strong>证毕</strong>。</p><blockquote><p>→ <strong>总结</strong>：存在传递依赖或不满足 3NF 的关系模式，必定不满足 BCNF。</p></blockquote><p><img src="https://gitee.com/nusqx/picgo/raw/master/20250626103820642.png" alt="image-20250626103811862"></p><h2 id="多值依赖（MVD）"><a href="#多值依赖（MVD）" class="headerlink" title="多值依赖（MVD）"></a>多值依赖（MVD）</h2><p><strong>定义</strong>：<br>设 $X, Y \subseteq U$, $Z = U - X - Y$，<br>$X \to\to Y$ 成立当且仅当：<br>对任意 $t_1, t_2$ 满足 $t_1[X] = t_2[X]$，<br>必存在 $t_3, t_4$ 使得：</p><ol><li><em>t</em>3[<em>X</em>]=<em>t</em>4[<em>X</em>]=<em>t</em>1[<em>X</em>]</li><li><em>t</em>3[<em>Y</em>]=<em>t</em>1[<em>Y</em>] 且 <em>t</em>3[<em>Z</em>]=<em>t</em>2[<em>Z</em>]</li><li><em>t</em>4[<em>Y</em>]=<em>t</em>2[<em>Y</em>] 且 <em>t</em>4[<em>Z</em>]=<em>t</em>1[<em>Z</em>]</li></ol><h3 id="关键特性"><a href="#关键特性" class="headerlink" title="关键特性"></a>关键特性</h3><table><thead><tr><th>性质</th><th>规则</th></tr></thead><tbody><tr><td><strong>互补性</strong></td><td>$X \to\to Y \Rightarrow X \to\to Z$</td></tr><tr><td><strong>FD蕴含MVD</strong></td><td>$X \to Y \Rightarrow X \to\to Y$</td></tr><tr><td><strong>超键条件</strong></td><td>$X \to\to Y$ 中 $X$ 是超键 ⇒ 平凡 MVD</td></tr></tbody></table><h3 id="典型案例：课程分配表"><a href="#典型案例：课程分配表" class="headerlink" title="典型案例：课程分配表"></a>典型案例：课程分配表</h3><table><thead><tr><th>Course</th><th>Teacher</th><th>Textbook</th></tr></thead><tbody><tr><td>Math</td><td>Alice</td><td>Calculus</td></tr><tr><td>Math</td><td>Alice</td><td>Algebra</td></tr><tr><td>Math</td><td>Bob</td><td>Calculus</td></tr><tr><td>Math</td><td>Bob</td><td>Algebra</td></tr></tbody></table><p><strong>MVD存在</strong>：<br>$Course \to\to Teacher$<br>$Course \to\to Textbook$（互补性）</p><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LRA<span class="token text string">[1NF]</span> <span class="token arrow operator">--&gt;</span> B<span class="token text string">[2NF]</span>B <span class="token arrow operator">--&gt;</span> C<span class="token text string">[3NF]</span>C <span class="token arrow operator">--&gt;</span> D<span class="token text string">[BCNF]</span>D <span class="token arrow operator">--&gt;</span> E<span class="token text string">[4NF]</span><span class="token keyword">subgraph</span> MVD处理D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">存在非平凡MVD</span> <span class="token arrow operator">--&gt;</span></span> E<span class="token keyword">end</span><span class="token keyword">subgraph</span> FD处理A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除部分依赖</span> <span class="token arrow operator">--&gt;</span></span> BB <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除传递依赖</span> <span class="token arrow operator">--&gt;</span></span> CC <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除主属性依赖</span> <span class="token arrow operator">--&gt;</span></span> D<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="第四范式-4NF"><a href="#第四范式-4NF" class="headerlink" title="**第四范式 (4NF) **"></a>**第四范式 (4NF) **</h2><p>设关系模式 $R(U) \in \text{1NF}$，$D$ 是其上的一组依赖（包括函数依赖和多值依赖）。若对<strong>任意非平凡多值依赖</strong> $X \to\to Y \in D$ 满足以下条件：</p><ol><li>$Y \neq \phi$ （Y 非空）</li><li>$Y \not\subset X$ （Y 不包含于 X）</li><li>$XY \neq U$ （X 和 Y 的组合不等于全集）</li></ol><p><strong>必有 $X$ 为超键</strong>（即 X 包含候选键），则称 $R(U)$ 满足第四范式，记为：<br>$$R(U) \in \text{4NF}$$</p><blockquote><p><strong>如果有多值依赖，则一定依赖于候选键</strong></p><p><strong>第四范式消除了非主属性对候选键以外属性的多值依赖。</strong></p></blockquote><hr><p>$R(U) \in \text{4NF}$ 当且仅当：</p><ol><li>$R \in \text{BCNF}$</li><li>对所有<strong>非平凡 MVD</strong> $X \to\to Y$，$X$ 必须是<strong>超键</strong></li></ol><h3 id="分解方法"><a href="#分解方法" class="headerlink" title="分解方法"></a>分解方法</h3><p>若存在非平凡 MVD $X \to\to Y$，可无损分解为：<br>$$R_1(X \cup Y), \quad R_2(X \cup Z) \quad (Z = U - X - Y)$$</p><table><thead><tr><th align="center">范式关系</th><th align="center">条件</th><th align="center">结论</th></tr></thead><tbody><tr><td align="center">4<em>NF</em>→<em>BCNF</em></td><td align="center">无限制</td><td align="center"><strong>恒成立</strong></td></tr><tr><td align="center"><em>BCNF</em>→4<em>NF</em></td><td align="center">仅存在函数依赖（无MVD）</td><td align="center"><strong>等价</strong></td></tr><tr><td align="center"><em>BCNF</em>→4<em>NF</em></td><td align="center">存在多值依赖（MVD）</td><td align="center"><strong>不成立</strong></td></tr></tbody></table><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR    BCNF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">存在多值依赖</span> <span class="token arrow operator">--&gt;</span></span> 需升级至 <span class="token arrow operator">--&gt;</span> 4NF    4NF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">仅函数依赖</span> <span class="token arrow operator">--&gt;</span></span> 等价于 <span class="token arrow operator">--&gt;</span> BCNF    4NF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">无限制</span> <span class="token arrow operator">--&gt;</span></span> 严格强于 <span class="token arrow operator">--&gt;</span> BCNF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="关系的第4范式和弱第4范式"><a href="#关系的第4范式和弱第4范式" class="headerlink" title="关系的第4范式和弱第4范式"></a>关系的第4范式和弱第4范式</h2><p><strong>[Definition] W4NF</strong><br>设关系模式 $R(U) \in \text{3NF}$，若 $R$ 上的<strong>任何互补多值依赖</strong>：</p><ul><li>$X \twoheadrightarrow Y$ </li><li>$X \twoheadrightarrow (R - X - Y)$</li></ul><p>满足约束条件：</p><ol><li>$XY \neq U$ （$X$ 与 $Y$ 组合非全集）</li><li>$Y - X \neq \varnothing$ （$Y$ 有独立于 $X$ 的属性）</li></ol><p><strong>则必有一个是多值依赖是函数依赖</strong>（即 $X \to Y$ 或 $X \to (R-X-Y)$），此时称 $R$ 是<strong>弱第四范式</strong>的，记为：<br>$$R \in \text{W4NF}$$</p><blockquote><p><strong>注</strong>：  </p><ol><li>W4NF <strong>不一定是 BCNF</strong>  </li><li>BCNF <strong>也不一定是 W4NF</strong>  </li><li>$\twoheadrightarrow$ 表示多值依赖符号（常见替代：<code>X \to\to Y</code>）</li></ol></blockquote><p><img src="https://gitee.com/nusqx/picgo/raw/master/20250626110909236.png" alt="image-20250626110905760"></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 函数依赖 </tag>
+            
+            <tag> 范式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据库系统（二）数据库语言</title>
       <link href="/2023/05/26/db2/"/>
       <url>/2023/05/26/db2/</url>
@@ -879,33 +906,6 @@
             <tag> 数据库 </tag>
             
             <tag> 关系模型 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数据库系统（三）关系模式设计之规范形式</title>
-      <link href="/2023/05/26/db3/"/>
-      <url>/2023/05/26/db3/</url>
-      
-        <content type="html"><![CDATA[<h1 id="关系模式设计之规范形式"><a href="#关系模式设计之规范形式" class="headerlink" title="关系模式设计之规范形式"></a>关系模式设计之规范形式</h1><h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><p>(1) 函数依赖的定义<br>设 <code>R(U)</code> 是属性集合 $ U = {A_1,A_2,…,A_n} $ 上的一个关系模式，<code>X</code>, <code>Y</code> 是 <code>U</code> 上的两个子集。若对 <code>R(U)</code> 的任意可能关系 <code>r</code>，<code>r</code> 中不存在两个元组在 <code>X</code> 中的属性值相等而在 <code>Y</code> 中的属性值不等，则称 <strong>“X函数决定Y”</strong> 或 **”Y函数依赖于X”**，记作 $ X \to Y $。</p><p>示例</p><p><strong>属性全集</strong>：<br>$ U = {\text{学号}, \text{姓名}, \text{年龄}, \text{班号}, \text{班长}, \text{课号}, \text{成绩}} $  </p><p>▢ $ \text{学号} \to {\text{姓名}, \text{年龄}} $<br>▢ $ \text{班号} \to \text{班长} $<br>▢ $ {\text{学号}, \text{课号}} \to \text{成绩} $  z</p><hr><blockquote><p><strong>设计关系模式时</strong><br>除给出属性全集外，还需明确给出 <strong>数据依赖集合</strong>。</p></blockquote><hr><h3 id="注"><a href="#注" class="headerlink" title="注"></a>注</h3><p>函数依赖的成立取决于：  </p><ol><li>问题领域的限定和分析；  </li><li>业务规则的正确理解。</li></ol><p><strong>示例说明</strong>：  </p><ul><li>若问题领域中<strong>学生无重名</strong>，则存在：<br>$ \text{姓名} \to {\text{年龄}, \text{家庭住址}} $  </li><li>若问题领域中<strong>学生有重名</strong>，则上述依赖不成立。</li></ul><h2 id="函数依赖的特性"><a href="#函数依赖的特性" class="headerlink" title="函数依赖的特性"></a>函数依赖的特性</h2><ol><li><p><strong>非平凡函数依赖</strong><br>对 $ X\rightarrow Y $，但 $ Y\subsetneq X $，则称 $ X\rightarrow Y $ 为非平凡的函数依赖。</p></li><li><p><strong>决定因素</strong><br>若 $ X\rightarrow Y $，则任意两个元组在X上值相等时，在Y上值必然相等，称X为决定因素。</p></li><li><p><strong>相互函数依赖</strong><br>若 $ X\rightarrow Y $ 且 $ Y\rightarrow X $，则记作 $ X\leftrightarrow Y $。</p></li><li><p><strong>非函数依赖表示</strong><br>若Y不函数依赖于X，则记作 $ X\not\rightarrow Y $。</p></li><li><p><strong>依赖的适用范围</strong></p><ul><li>基于模式R：对任意关系r成立</li><li>基于具体关系r：仅对某一特定关系r成立</li></ul></li><li><p><strong>特殊情形下的恒等依赖</strong><br>如一关系r的某属性集X，r中不存在X值相等的两个元组，则 $ X\rightarrow Y $ 恒成立。</p></li></ol><h2 id="函数依赖类型：完全依赖与部分依赖"><a href="#函数依赖类型：完全依赖与部分依赖" class="headerlink" title="函数依赖类型：完全依赖与部分依赖"></a>函数依赖类型：完全依赖与部分依赖</h2><h3 id="Definition-部分或完全函数依赖"><a href="#Definition-部分或完全函数依赖" class="headerlink" title="[Definition] 部分或完全函数依赖"></a>[Definition] 部分或完全函数依赖</h3><p>在关系模式 <code>R(U)</code> 中：</p><table><thead><tr><th>依赖类型</th><th>定义</th><th>表示法</th></tr></thead><tbody><tr><td><strong>完全函数依赖</strong></td><td>若 <code>X → Y</code> 且对 <code>X</code> 的任意真子集 <code>X'</code> 都有 <code>X' ↛ Y</code></td><td>$ X \xrightarrow{f} Y $</td></tr><tr><td><strong>部分函数依赖</strong></td><td>若 <code>X → Y</code> 但存在 <code>X</code> 的真子集 <code>X'</code> 使得 <code>X' → Y</code></td><td>$ X \xrightarrow{p} Y $</td></tr></tbody></table><hr><h3 id="概念解析："><a href="#概念解析：" class="headerlink" title="概念解析："></a>概念解析：</h3><ol><li><p><strong>完全依赖的核心特征</strong>  </p><ul><li>决定因素 <code>X</code> 必须完整才能确定 <code>Y</code>  </li><li>移除 <code>X</code> 的任意属性都会破坏依赖关系<br><em>示例：</em><br>$ {\text{学号}, \text{课程号}} \xrightarrow{f} \text{成绩} $</li></ul></li><li><p><strong>部分依赖的识别</strong>  </p><ul><li><code>Y</code> 可由 <code>X</code> 的某个真子集单独决定  </li><li>存在属性冗余的决定因素<br><em>示例：</em><br>$ {\text{学号}, \text{姓名}} \xrightarrow{p} \text{年龄} $<br>（因 $\text{学号} → \text{年龄}$ 已成立）</li></ul></li></ol><hr><h3 id="视觉提示："><a href="#视觉提示：" class="headerlink" title="视觉提示："></a>视觉提示：</h3><ul><li>完全依赖符号：$ \xrightarrow{f} $ (f: full)  </li><li>部分依赖符号：$ \xrightarrow{p} $ (p: partial)  </li><li>非函数依赖符号：$ \not\rightarrow $</li></ul><h2 id="传递函数依赖"><a href="#传递函数依赖" class="headerlink" title="传递函数依赖"></a>传递函数依赖</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="[Definition]"></a>[Definition]</h3><p>在关系模式 <code>R(U)</code> 中，设 <code>X</code>, <code>Y</code>, <code>Z</code> 是 <code>U</code> 的子集。若满足：</p><ol><li>$ X \to Y $  </li><li>$ Y \to Z $  </li><li>$ Y \not\subset X $（即 Y 不是 X 的子集）  </li><li>$ Z \not\subset Y $  </li><li>$ Z \not\subset X $  </li><li>$ Y \not\to X $（即 Y 不能函数决定 X）</li></ol><p>则称 <strong>Z 传递函数依赖于 X</strong>，记作 $ X \xrightarrow{t} Z $（t: transitive）。</p><hr><h3 id="核心条件解析："><a href="#核心条件解析：" class="headerlink" title="核心条件解析："></a>核心条件解析：</h3><table><thead><tr><th>条件</th><th>数学表示</th><th>语义说明</th></tr></thead><tbody><tr><td><strong>依赖性</strong></td><td>$ X \to Y $ 且 $ Y \to Z $</td><td>存在依赖链传递关系</td></tr><tr><td><strong>非包含性</strong></td><td>$ Y \not\subset X $<br>$ Z \not\subset Y $<br>$ Z \not\subset X $</td><td>排除因集合包含关系导致的依赖</td></tr><tr><td><strong>非相互依赖</strong></td><td>$ Y \not\to X $</td><td>确保 Y 不是 X 的等价属性集</td></tr></tbody></table><blockquote><p><strong>传递依赖的本质</strong>：当且仅当依赖不能通过直接路径（$ X \to Z $）建立，但可通过中间属性 Y 间接推导时成立。</p></blockquote><hr><h3 id="示例说明："><a href="#示例说明：" class="headerlink" title="示例说明："></a>示例说明：</h3><p>学生选课系统中：<br>$ \text{学号} \to \text{班号} $<br>$ \text{班号} \to \text{班长} $<br>且满足非包含条件：</p><ul><li>班号 ⊄ 学号</li><li>班长 ⊄ 班号</li><li>班长 ⊄ 学号  </li><li>班号 ↛ 学号</li></ul><p>则 $ \text{学号} \xrightarrow{t} \text{班长} $</p><h3 id="Definition-候选键"><a href="#Definition-候选键" class="headerlink" title="[Definition] 候选键"></a>[Definition] 候选键</h3><p>设 $ K $ 为关系模式 $ R(U) $ 中的属性或属性组合，若满足：<br>$$ K \xrightarrow{f} U $$<br>则称 $ K $ 为 $ R(U) $ 上的 <strong>候选键</strong> (Candidate Key)。</p><hr><h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol><li><p><strong>主键选择</strong><br>可任选一候选键作为 $ R $ 的 <strong>主键</strong> (Primary Key)</p></li><li><p><strong>主属性划分</strong>  </p><ul><li>包含在任一候选键中的属性 → <strong>主属性</strong> (Prime Attribute)  </li><li>未包含在任何候选键中的属性 → <strong>非主属性</strong> (Non-Prime Attribute)</li></ul></li><li><p><strong>超键定义</strong><br>若 $ S \supset K $（$ S $ 真包含 $ K $）且 $ K $ 是候选键 →<br>$ S $ 为 <strong>超键</strong> (Super Key)</p></li></ol><hr><h3 id="概念关系图解"><a href="#概念关系图解" class="headerlink" title="概念关系图解"></a>概念关系图解</h3><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR    A<span class="token text string">[超键]</span> <span class="token arrow operator">--&gt;</span> B<span class="token text string">[候选键]</span> <span class="token arrow operator">--&gt;</span> C<span class="token text string">[主键]</span>    B <span class="token arrow operator">--&gt;</span> D<span class="token text string">[主属性]</span>    C <span class="token arrow operator">--&gt;</span> D    A <span class="token arrow operator">-.-&gt;</span> E<span class="token text string">[非主属性]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>外来键</strong><br>若R(U)中的属性或属性组合X并非R的候选键，但X却是另一关系的候选键，则称X为R的外来键(Foreign Key)，简称外键。</p><h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p>若关系模式R(U)中关系的每个分量都是不可分的数据项(值、原子)，则称R(U)属于第一范式，记为：R(U) ∈1NF。</p><p>1NF要求关系中不能有复合属性、多值属性及其组合。</p><p>将 非1NF转换为 1NF情况：将复合属性处理为简单属性；将多值属性与关键字单独组成一新的关系。</p><h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>若R(U)∈ 1NF 且 U中的每一<strong>非主属性</strong>完全函数依赖于<strong>候选键</strong>，则称R(U)属于第二范式，记为：R(U)∈2NF。</p><p>第二范式消除了非主属性对候选键的部分依赖。</p><h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><strong>第三范式 (3NF) 定义</strong>   若关系模式 $R(U, F) \in \text{2NF}$ 且 $R$ 中<strong>不存在</strong>以下情况：  </p><ul><li>候选键 $X$   </li><li>属性组 $Y \subseteq U$   </li><li>非主属性 $A$   </li><li>满足：   1. $A \notin X$ 且 $A \notin Y$   2. $Y \not\subseteq X$ (Y 不包含于 X)   3. $Y \nrightarrow X$ (Y 不函数决定 X)   4. $X \rightarrow Y$ 且 $Y \rightarrow A$   则称 $R(U)$ 属于<strong>第三范式</strong>，记为：   $$R(U) \in \text{3NF}$$</li></ul><p>第3范式消除了非主属性对侯选键的传递依赖</p><p>关系模式设计如满足第3范式，则一定能满足第2范式；反之则不然。</p><h2 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a>BCNF</h2><p>若 $R(U, F) \in \text{1NF}$，且对于任何 $X \rightarrow Y \in F$（或 $X \rightarrow A \in F$），当 $Y \not\subseteq X$（或 $A \notin X$）时，$X$ 必含有<strong>候选键</strong>，则称 $R(U)$ 属于 Boyce-Codd 范式，记为：$$R(U) \in \text{BCNF}$$</p><p><strong>[定理]</strong> 若 $R(U,F) \in \text{BCNF}$，则 $R(U,F) \in \text{3NF}$。</p><p><strong>证明</strong>：<br>（反证法）假设 $R(U,F) \in \text{BCNF}$ 但 $R(U,F) \notin \text{3NF}$。<br>依据 3NF 定义，必存在传递依赖：<br>$$\exists X \rightarrow Y,\ Y \rightarrow A$$<br>其中：  </p><ul><li>$X$ 是候选键  </li><li>$A \notin X$ 且 $A \notin Y$  </li><li>$Y \nrightarrow X$（即 $X \notin Y$）</li></ul><p>由于 $A \notin Y$，$Y \rightarrow A$ 违反 BCNF 的定义（BCNF 要求<strong>所有非平凡函数依赖的左侧必须包含候选键</strong>，但 $Y$ 不是候选键）。<br>故假设矛盾，定理得证。<br><strong>证毕</strong>。</p><blockquote><p>→ <strong>总结</strong>：存在传递依赖或不满足 3NF 的关系模式，必定不满足 BCNF。</p></blockquote><p><img src="https://gitee.com/nusqx/picgo/raw/master/20250626103820642.png" alt="image-20250626103811862"></p><h2 id="多值依赖（MVD）"><a href="#多值依赖（MVD）" class="headerlink" title="多值依赖（MVD）"></a>多值依赖（MVD）</h2><p><strong>定义</strong>：<br>设 $X, Y \subseteq U$, $Z = U - X - Y$，<br>$X \to\to Y$ 成立当且仅当：<br>对任意 $t_1, t_2$ 满足 $t_1[X] = t_2[X]$，<br>必存在 $t_3, t_4$ 使得：</p><ol><li><em>t</em>3[<em>X</em>]=<em>t</em>4[<em>X</em>]=<em>t</em>1[<em>X</em>]</li><li><em>t</em>3[<em>Y</em>]=<em>t</em>1[<em>Y</em>] 且 <em>t</em>3[<em>Z</em>]=<em>t</em>2[<em>Z</em>]</li><li><em>t</em>4[<em>Y</em>]=<em>t</em>2[<em>Y</em>] 且 <em>t</em>4[<em>Z</em>]=<em>t</em>1[<em>Z</em>]</li></ol><h3 id="关键特性"><a href="#关键特性" class="headerlink" title="关键特性"></a>关键特性</h3><table><thead><tr><th>性质</th><th>规则</th></tr></thead><tbody><tr><td><strong>互补性</strong></td><td>$X \to\to Y \Rightarrow X \to\to Z$</td></tr><tr><td><strong>FD蕴含MVD</strong></td><td>$X \to Y \Rightarrow X \to\to Y$</td></tr><tr><td><strong>超键条件</strong></td><td>$X \to\to Y$ 中 $X$ 是超键 ⇒ 平凡 MVD</td></tr></tbody></table><h3 id="典型案例：课程分配表"><a href="#典型案例：课程分配表" class="headerlink" title="典型案例：课程分配表"></a>典型案例：课程分配表</h3><table><thead><tr><th>Course</th><th>Teacher</th><th>Textbook</th></tr></thead><tbody><tr><td>Math</td><td>Alice</td><td>Calculus</td></tr><tr><td>Math</td><td>Alice</td><td>Algebra</td></tr><tr><td>Math</td><td>Bob</td><td>Calculus</td></tr><tr><td>Math</td><td>Bob</td><td>Algebra</td></tr></tbody></table><p><strong>MVD存在</strong>：<br>$Course \to\to Teacher$<br>$Course \to\to Textbook$（互补性）</p><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LRA<span class="token text string">[1NF]</span> <span class="token arrow operator">--&gt;</span> B<span class="token text string">[2NF]</span>B <span class="token arrow operator">--&gt;</span> C<span class="token text string">[3NF]</span>C <span class="token arrow operator">--&gt;</span> D<span class="token text string">[BCNF]</span>D <span class="token arrow operator">--&gt;</span> E<span class="token text string">[4NF]</span><span class="token keyword">subgraph</span> MVD处理D <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">存在非平凡MVD</span> <span class="token arrow operator">--&gt;</span></span> E<span class="token keyword">end</span><span class="token keyword">subgraph</span> FD处理A <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除部分依赖</span> <span class="token arrow operator">--&gt;</span></span> BB <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除传递依赖</span> <span class="token arrow operator">--&gt;</span></span> CC <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">消除主属性依赖</span> <span class="token arrow operator">--&gt;</span></span> D<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="第四范式-4NF"><a href="#第四范式-4NF" class="headerlink" title="**第四范式 (4NF) **"></a>**第四范式 (4NF) **</h2><p>设关系模式 $R(U) \in \text{1NF}$，$D$ 是其上的一组依赖（包括函数依赖和多值依赖）。若对<strong>任意非平凡多值依赖</strong> $X \to\to Y \in D$ 满足以下条件：</p><ol><li>$Y \neq \phi$ （Y 非空）</li><li>$Y \not\subset X$ （Y 不包含于 X）</li><li>$XY \neq U$ （X 和 Y 的组合不等于全集）</li></ol><p><strong>必有 $X$ 为超键</strong>（即 X 包含候选键），则称 $R(U)$ 满足第四范式，记为：<br>$$R(U) \in \text{4NF}$$</p><blockquote><p><strong>如果有多值依赖，则一定依赖于候选键</strong></p><p><strong>第四范式消除了非主属性对候选键以外属性的多值依赖。</strong></p></blockquote><hr><p>$R(U) \in \text{4NF}$ 当且仅当：</p><ol><li>$R \in \text{BCNF}$</li><li>对所有<strong>非平凡 MVD</strong> $X \to\to Y$，$X$ 必须是<strong>超键</strong></li></ol><h3 id="分解方法"><a href="#分解方法" class="headerlink" title="分解方法"></a>分解方法</h3><p>若存在非平凡 MVD $X \to\to Y$，可无损分解为：<br>$$R_1(X \cup Y), \quad R_2(X \cup Z) \quad (Z = U - X - Y)$$</p><table><thead><tr><th align="center">范式关系</th><th align="center">条件</th><th align="center">结论</th></tr></thead><tbody><tr><td align="center">4<em>NF</em>→<em>BCNF</em></td><td align="center">无限制</td><td align="center"><strong>恒成立</strong></td></tr><tr><td align="center"><em>BCNF</em>→4<em>NF</em></td><td align="center">仅存在函数依赖（无MVD）</td><td align="center"><strong>等价</strong></td></tr><tr><td align="center"><em>BCNF</em>→4<em>NF</em></td><td align="center">存在多值依赖（MVD）</td><td align="center"><strong>不成立</strong></td></tr></tbody></table><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR    BCNF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">存在多值依赖</span> <span class="token arrow operator">--&gt;</span></span> 需升级至 <span class="token arrow operator">--&gt;</span> 4NF    4NF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">仅函数依赖</span> <span class="token arrow operator">--&gt;</span></span> 等价于 <span class="token arrow operator">--&gt;</span> BCNF    4NF <span class="token inter-arrow-label"><span class="token arrow-head arrow operator">--</span> <span class="token label property">无限制</span> <span class="token arrow operator">--&gt;</span></span> 严格强于 <span class="token arrow operator">--&gt;</span> BCNF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="关系的第4范式和弱第4范式"><a href="#关系的第4范式和弱第4范式" class="headerlink" title="关系的第4范式和弱第4范式"></a>关系的第4范式和弱第4范式</h2><p><strong>[Definition] W4NF</strong><br>设关系模式 $R(U) \in \text{3NF}$，若 $R$ 上的<strong>任何互补多值依赖</strong>：</p><ul><li>$X \twoheadrightarrow Y$ </li><li>$X \twoheadrightarrow (R - X - Y)$</li></ul><p>满足约束条件：</p><ol><li>$XY \neq U$ （$X$ 与 $Y$ 组合非全集）</li><li>$Y - X \neq \varnothing$ （$Y$ 有独立于 $X$ 的属性）</li></ol><p><strong>则必有一个是多值依赖是函数依赖</strong>（即 $X \to Y$ 或 $X \to (R-X-Y)$），此时称 $R$ 是<strong>弱第四范式</strong>的，记为：<br>$$R \in \text{W4NF}$$</p><blockquote><p><strong>注</strong>：  </p><ol><li>W4NF <strong>不一定是 BCNF</strong>  </li><li>BCNF <strong>也不一定是 W4NF</strong>  </li><li>$\twoheadrightarrow$ 表示多值依赖符号（常见替代：<code>X \to\to Y</code>）</li></ol></blockquote><p><img src="https://gitee.com/nusqx/picgo/raw/master/20250626110909236.png" alt="image-20250626110905760"></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库系统 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 函数依赖 </tag>
-            
-            <tag> 范式 </tag>
             
         </tags>
       
@@ -1296,11 +1296,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> cpp </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
             <tag> C语言 </tag>
             
@@ -1354,9 +1354,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> C语言 </tag>
             
